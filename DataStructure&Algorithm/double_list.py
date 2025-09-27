@@ -39,6 +39,11 @@ class DoubleLinkedList:
         while ptr is not self.head:
             print(ptr.data)
             ptr = ptr.prev
+    def print_reverse(self) ->None:
+        ptr = self.head.prev
+        while ptr is not self.head:
+            print(ptr.data)
+            ptr = ptr.prev
     def next(self) -> bool:
         if self.is_empty() or self.current.next is self.head:
             return False
@@ -92,9 +97,9 @@ class DoubleLinkedList:
             self.remove_first()
         self.no = 0
     def __iter__(self) -> DoubleLinkedListIterator:
-        return DoubleLinkedListIterator(self.haed)
+        return DoubleLinkedListIterator(self.head)
     def __reversed__(self) -> DoubleLinkedListIterator:
-        return DoubleLinkedListIterator(self.haed)
+        return DoubleLinkedListReverseIterator(self.head)
 class DoubleLinkedListIterator:
     def __init__(self, head: Node):
         self.head = head
